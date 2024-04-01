@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: poppins;
+}
+
+.menu-active::before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 70px;
+  gap: 0px;
+
+  border-radius: 0px 8px 8px 0px;
+  opacity: 0px;
+  background: #F7AC25;
+  margin-top: -7px;
+
+}
