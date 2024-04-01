@@ -1,19 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import DashboardLayout from "../components/Layout";
+import AuthChecker from "../components/AuthChecker";
 import ProcessAuth from "../pages/auth/ProcessAuth";
 import Dashboard from "../pages/Dashboard";
 import JobPosts from "../pages/JobPosts";
 import Candidates from "../pages/Candidates";
+import { NotFound } from "../pages/NotFound";
+import Login from "../pages/auth/Login";
 
 const browserRouter = createBrowserRouter([
-
-  {
-    path: "/auth/redirect",
-    element: <ProcessAuth />,
-  },
   {
     path: "/",
-    element: <DashboardLayout />,
+    element: <AuthChecker />,
     children:[{
       path:"",
       element:<Dashboard />
@@ -25,6 +22,17 @@ const browserRouter = createBrowserRouter([
       element:<Candidates />
     }]
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/auth/redirect",
+    element: <ProcessAuth />,
+  },{
+    path:"*",
+    element:<NotFound />
+  }
 ]);
 const RoutesProvider = () => {
 

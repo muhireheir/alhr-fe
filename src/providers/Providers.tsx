@@ -7,7 +7,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const Providers = () => {
   const queryClient = new QueryClient();
   return (
-    <AuthProvider authName='auth' authType='cookie'>
+    <AuthProvider authName='alhr' authType='cookie'>
           <QueryClientProvider client={queryClient}>
             <RoutesProvider />
             <ReactQueryDevtools initialIsOpen={false} />
