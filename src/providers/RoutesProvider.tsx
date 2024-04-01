@@ -3,9 +3,10 @@ import AuthChecker from "../components/AuthChecker";
 import ProcessAuth from "../pages/auth/ProcessAuth";
 import Dashboard from "../pages/Dashboard";
 import JobPosts from "../pages/JobPosts";
-import Candidates from "../pages/Candidates";
+import Candidates from "../pages/candidates/Candidates";
 import { NotFound } from "../pages/NotFound";
 import Login from "../pages/auth/Login";
+import AddCandidate from "../pages/candidates/AddCandidate";
 
 const browserRouter = createBrowserRouter([
   {
@@ -20,7 +21,12 @@ const browserRouter = createBrowserRouter([
     },{
       path:"candidates",
       element:<Candidates />
-    }]
+    },
+    {
+      path: "/candidates/add",
+      element: <AddCandidate />,
+    }
+  ]
   },
   {
     path: "/login",
@@ -29,7 +35,8 @@ const browserRouter = createBrowserRouter([
   {
     path: "/auth/redirect",
     element: <ProcessAuth />,
-  },{
+  }
+  ,{
     path:"*",
     element:<NotFound />
   }

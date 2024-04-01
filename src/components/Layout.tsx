@@ -39,7 +39,7 @@ const Layout = () => {
            <Navigation />
         </div>
       </Transition>
-      <main className='w-full p-0 md:pl-32 md:pr-4 md:py-4  shadow-sm'>
+      <main className='w-full p-0 md:pl-32 md:pr-4 md:py-4'>
         <div className='p-4'>
             <Outlet />
         </div>

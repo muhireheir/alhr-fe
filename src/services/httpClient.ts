@@ -1,4 +1,6 @@
 import axios from "axios";
+import toast from "react-hot-toast";
+
 const getCookie = (name: string) => {
   const cookie = document.cookie
     .split("; ")
@@ -8,7 +10,7 @@ const getCookie = (name: string) => {
 const ApiClient = () => {
   const instance = axios.create();
   instance.interceptors.request.use(async (request) => {
-    const accessToken = getCookie("auth");
+    const accessToken = getCookie("alhr");
     if (accessToken) {
       request.headers.Authorization = `Bearer ${accessToken}`;
     }
@@ -19,6 +21,9 @@ const ApiClient = () => {
   instance.interceptors.response.use(
     (response) => response,
     (error) => {
+      const responseMessage = error.response.data.message??error.response.data.error;
+      const message = responseMessage || error.message;
+      toast.error(message)
       return Promise.reject(error);
     },
   );
