@@ -6,7 +6,7 @@ import { getCandidates } from "../../services/candidates"
 
 
 export default function CandidateList() {
-  const {isLoading,data} = useQuery({queryKey:["candidates"],queryFn:getCandidates})
+  const {data} = useQuery({queryKey:["candidates"],queryFn:getCandidates})
   return (
     <div className="w-full bg-white p-6 rounded-md border">
       <div className="w-full space-y-3">
